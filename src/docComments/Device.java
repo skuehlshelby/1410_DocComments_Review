@@ -1,5 +1,8 @@
 package docComments;
-
+/**
+* This Class Constructs, edits, adds, and removes device objects from and ArrayList for use in the practice database.
+*
+*/
 public class Device
 {
     //Shared members
