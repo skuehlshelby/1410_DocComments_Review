@@ -5,8 +5,6 @@ public class Device
     //Shared members
     private static int id = 1111111;
 
-
-
     private static int getID()
     {
         return id++;
@@ -25,7 +23,6 @@ public class Device
     private final String thingOne;
     private final String thingTwo;
     private final String thingThree;
-
 
     public String getThingOne()
     {
