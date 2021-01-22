@@ -7,17 +7,19 @@ public class Device
 {
     //Shared members
     private static int id = 1111111;
-    //I was thinking that we could just do Xbox or PlayStation
-    String brand, model, storageSpace;
     
-    //Cool idea to do the count and create the id at the same time. I think there would be an issue where if the user wanted to get the id that it would mess it up.
-    //So we would need to have a different method for getting the id and another for creating it and assigning it. 
+    //Only used inside the constructor of new devices. Device instances use the ID field
     private static int getID()
     {
         return id++;
     }
 
     //Instance members
+
+    //I was thinking that we could just do Xbox or PlayStation
+    private final int ID;
+    private final String brand, model, storageSpace;
+
     /**
     * Constructor for a device object
     */
@@ -29,11 +31,6 @@ public class Device
         this.storageSpace = storageSpace;
     }
 
-    private final int ID;
-    private final String thingOne;
-    private final String thingTwo;
-    private final String thingThree;
-
     /**
     * Returns the brand of the device
     */
@@ -41,6 +38,7 @@ public class Device
     {
         return brand;
     }
+
     /**
     * Returns the model of the device
     */
@@ -48,6 +46,7 @@ public class Device
     {
         return model;
     }
+
     /**
     * Returns the HDD storage space on the device.
     */
@@ -55,6 +54,7 @@ public class Device
     {
         return storageSpace;
     }
+
     /**
     * Gathers all information about the device and converts it into a string. 
     */
