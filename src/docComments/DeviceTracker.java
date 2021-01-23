@@ -1,6 +1,4 @@
 package docComments;
-//potato
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,21 +23,30 @@ public class DeviceTracker
 
     public void addDevice(Device newDevice)
     {
-        throw new NotImplementedException();
+
     }
 
     public void removeDevice(int idNumber)
     {
-        throw new NotImplementedException();
+
     }
 
     public Device findDevice(int idNumber)
     {
-        throw new NotImplementedException();
+
     }
-    
-    public List<Device> allDevices() {
-        return instance.devices;
+
+    /**
+     * Prints out all the devices stored in the devices ArrayList
+     * @param devices
+     */
+    public void allDevices(List<Device> devices)
+    {
+        int i;
+        for (i = 0; i < instance.devices.size(); i++)
+        {
+            System.out.println(instance.devices.get(i));
+        }
     }
 
     public int numberOfDevices()
