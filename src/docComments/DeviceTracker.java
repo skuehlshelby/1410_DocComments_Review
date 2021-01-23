@@ -37,7 +37,13 @@ public class DeviceTracker
 
     public GameConsole findDevice(int idNumber)
     {
-
+        for (GameConsole console : gameConsoles)
+        {
+            if(console.getID() == idNumber)
+            {
+                return console;
+            }
+        }
     }
 
     /**
