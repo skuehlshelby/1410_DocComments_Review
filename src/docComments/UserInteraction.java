@@ -40,6 +40,8 @@ public class UserInteraction
             selection = scanner.nextInt();
         } while (selection < min || selection > max);
 
+        scanner.nextLine();
+
         return selection;
     }
 
@@ -65,6 +67,6 @@ public class UserInteraction
 
     public static void displayListSize(List<GameConsole> list)
     {
-        present(String.format("There are %d consoles currently being tracked", list.size()));
+        present(String.format("There are %d consoles currently being tracked.", list.size()));
     }
 }

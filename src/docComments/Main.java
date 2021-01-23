@@ -10,10 +10,12 @@ public class Main
             switch (UserInteraction.getUserSelection())
             {
                 case 1:
-
+                    UserInteraction.present(DeviceTracker.getInstance().allGameConsoles().toArray(new String[DeviceTracker.getInstance().allGameConsoles().size()]));
                     break;
                 case 2:
-                    DeviceTracker.getInstance().addGameConsole(UserInteraction.getConsoleInfoFromUser());
+                    GameConsole console = UserInteraction.getConsoleInfoFromUser();
+                    DeviceTracker.getInstance().addGameConsole(console);
+                    UserInteraction.present(String.format("Successfully added %s", console.toString()));
                     break;
                 case 3:
                     try
@@ -37,6 +39,7 @@ public class Main
                     UserInteraction.displayListSize(DeviceTracker.getInstance().allGameConsoles());
                     break;
                 case 6:
+                    UserInteraction.present("Goodbye...");
                     exit = true;
                     break;
             }
