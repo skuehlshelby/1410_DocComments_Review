@@ -13,28 +13,28 @@ public class Main
 
                     break;
                 case 2:
-                    DeviceTracker.getInstance().addDevice(UserInteraction.getConsoleInfoFromUser());
+                    DeviceTracker.getInstance().addGameConsole(UserInteraction.getConsoleInfoFromUser());
                     break;
                 case 3:
                     try
                     {
-                        UserInteraction.printObject(DeviceTracker.getInstance().findDevice(UserInteraction.getNumberFromUser(1234567, Integer.MAX_VALUE)));
+                        UserInteraction.present(DeviceTracker.getInstance().findGameConsole(UserInteraction.getConsoleIDNumber()).toString());
                     } catch (Exception e)
                     {
-                        UserInteraction.printObject(e.getMessage());
+                        UserInteraction.present(e.getMessage());
                     }
                     break;
                 case 4:
                     try
                     {
-                        DeviceTracker.getInstance().removeDevice(UserInteraction.getNumberFromUser(1234567, Integer.MAX_VALUE));
+                        DeviceTracker.getInstance().removeGameConsole(UserInteraction.getConsoleIDNumber());
                     } catch (Exception e)
                     {
-                        UserInteraction.printObject(e.getMessage());
+                        UserInteraction.present(e.getMessage());
                     }
                     break;
                 case 5:
-                    UserInteraction.displayListSize(DeviceTracker.getInstance().allDevices());
+                    UserInteraction.displayListSize(DeviceTracker.getInstance().allGameConsoles());
                     break;
                 case 6:
                     exit = true;

@@ -25,13 +25,13 @@ public class UserInteraction
         }
     }
 
-    public static String getStringResponse(String...prompt)
+    private static String getStringResponse(String...prompt)
     {
         present(prompt);
         return scanner.nextLine();
     }
 
-    public static int getIntResponse(int min, int max, String...prompt)
+    private static int getIntResponse(int min, int max, String...prompt)
     {
         int selection = 0;
 
@@ -47,26 +47,24 @@ public class UserInteraction
     {
         present(userOptions);
 
-        return getNumberFromUser(1, userOptions.length);
+        return getIntResponse(1, userOptions.length, String.format("Please enter a number between %d and %d:", 1, userOptions.length));
     }
 
     public static GameConsole getConsoleInfoFromUser()
     {
         return new GameConsole(
-                getUserResponse("What brand is the console?"),
-                getUserResponse("What model is the console?"),
-                getUserResponse("How much storage does the console have?"));
+                getStringResponse("What brand is the console?"),
+                getStringResponse("What model is the console?"),
+                getStringResponse("How much storage does the console have?"));
     }
 
-    private static String getUserResponse(String prompt)
+    public static int getConsoleIDNumber()
     {
-        System.out.println(prompt);
-
-        return scanner.nextLine();
+        return getIntResponse(1234567, Integer.MAX_VALUE, "Please enter the console ID number.");
     }
 
     public static void displayListSize(List<GameConsole> list)
     {
-        System.out.println(list.size());
+        present(String.format("There are %d consoles currently being tracked", list.size()));
     }
 }
