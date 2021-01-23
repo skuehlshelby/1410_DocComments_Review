@@ -9,7 +9,7 @@ public class Device
     private static int id = 1234567;
     
     //Only used inside the constructor of new devices. Device instances use the ID field
-    private static int getID()
+    private static int createID()
     {
         return id++;
     }
@@ -24,7 +24,7 @@ public class Device
     */
     public Device(String brand, String model, String storageSpace)
     {
-        ID = getID();
+        ID = createID();
         this.brand = brand;
         this.model = model;
         this.storageSpace = storageSpace;
