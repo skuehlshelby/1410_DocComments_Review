@@ -35,7 +35,7 @@ public class DeviceTracker
 
     }
 
-    public GameConsole findDevice(int idNumber)
+    public GameConsole findDevice(int idNumber) throws Exception
     {
         for (GameConsole console : gameConsoles)
         {
@@ -44,6 +44,8 @@ public class DeviceTracker
                 return console;
             }
         }
+
+        throw new Exception(String.format("Could not find a device with the id number %d", idNumber));
     }
 
     /**
