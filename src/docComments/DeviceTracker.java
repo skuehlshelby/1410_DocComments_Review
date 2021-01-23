@@ -1,5 +1,6 @@
 package docComments;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,18 +22,18 @@ public class DeviceTracker
     }
 
     //Instance members
-    private final List<GameConsole> gameConsoles;
+    private final ArrayList<GameConsole> gameConsoles;
 
     /**
      * Constructor for the Device Tracker Object.
      */
     private DeviceTracker()
     {
-        gameConsoles = Arrays.asList(
+        gameConsoles = new ArrayList<GameConsole>(Arrays.asList(
                 new GameConsole("Xbox", "SeriesX", "1TB SSD"),
                 new GameConsole("Xbox", "Xbox1", "500GB HDD"),
                 new GameConsole("Playstation", "PS4", "1TB SSD"),
-                new GameConsole("Playstation", "PS5", "500GB HDD"));
+                new GameConsole("Playstation", "PS5", "500GB HDD")));
     }
 
     /**
