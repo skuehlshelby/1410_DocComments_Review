@@ -1,6 +1,5 @@
 package docComments;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,20 +14,20 @@ public class DeviceTracker
     }
 
     //Instance members
-    private final List<Device> devices;
+    private final List<GameConsole> gameConsoles;
 
     private DeviceTracker()
     {
-        devices = Arrays.asList(
-                new Device("Xbox", "SeriesX", "1 TB SSD"),
-                new Device("Xbox", "Xbox1", "500 GB HDD"),
-                new Device("Playstation", "PS4", "500 GB HDD"),
-                new Device("Playstation", "PS5", "1 TB SSD"));
+        gameConsoles = Arrays.asList(
+                new GameConsole("", "", ""),
+                new GameConsole("", "", ""),
+                new GameConsole("", "", ""),
+                new GameConsole("", "", ""));
     }
 
-    public void addDevice(Device newDevice)
+    public void addDevice(GameConsole newGameConsole)
     {
-
+        gameConsoles.add(newGameConsole);
     }
 
     public void removeDevice(int idNumber)
@@ -36,30 +35,26 @@ public class DeviceTracker
 
     }
 
-    public Device findDevice(int idNumber)
+    public GameConsole findDevice(int idNumber)
     {
 
     }
 
     /**
      * Prints out all the devices stored in the devices ArrayList
-     * @param devices
+     * @param gameConsoles
      */
-    public void allDevices(List<Device> devices)
+    public void allDevices(List<GameConsole> gameConsoles)
     {
         int i;
-        for (i = 0; i < instance.devices.size(); i++)
+        for (i = 0; i < instance.gameConsoles.size(); i++)
         {
-            System.out.println(instance.devices.get(i));
+            System.out.println(instance.gameConsoles.get(i));
         }
     }
 
-    /**
-     * Prints the number of devices that are stored in the Array List
-     * @return Returns the size of the devices ArrayList
-     */
     public int numberOfDevices()
     {
-        return instance.devices.size();
+        return instance.gameConsoles.size();
     }
 }
