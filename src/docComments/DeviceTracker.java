@@ -7,18 +7,20 @@ import java.util.List;
 
 public class DeviceTracker
 {
+    //Shared members
     private static final DeviceTracker instance = new DeviceTracker();
 
+    public static DeviceTracker getInstance()
+    {
+        return instance;
+    }
+
+    //Instance members
     private final List<Device> devices;
 
     private DeviceTracker()
     {
         devices = new ArrayList<Device>() {};
-    }
-
-    public static DeviceTracker getInstance()
-    {
-        return instance;
     }
 
     public void addDevice(Device newDevice)
