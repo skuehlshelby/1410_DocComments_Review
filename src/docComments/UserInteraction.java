@@ -9,34 +9,45 @@ public class UserInteraction
 
     private static final String[] userOptions =
             {
-            "Show all consoles.",
-            "Add a console.",
-            "Find a console.",
-            "Delete a console.",
-            "Display total number of consoles.",
-            "Exit"
+            "1. Show all consoles.",
+            "2. Add a console.",
+            "3. Find a console.",
+            "4. Delete a console.",
+            "5. Display total number of consoles.",
+            "6. Exit"
             };
 
-    private static void prompt()
+    public static void present(String...lines)
     {
-        for (int i = 0; i < userOptions.length; i++)
+        for (String line : lines)
         {
-            System.out.printf("%d. ", i + 1, userOptions[i]);
+            System.out.println(line);
         }
+    }
+
+    public static String getStringResponse(String...prompt)
+    {
+        present(prompt);
+        return scanner.nextLine();
+    }
+
+    public static int getIntResponse(int min, int max, String...prompt)
+    {
+        int selection = 0;
+
+        do {
+            present(prompt);
+            selection = scanner.nextInt();
+        } while (selection < min || selection > max);
+
+        return selection;
     }
 
     public static int getUserSelection()
     {
-        prompt();
+        present(userOptions);
 
-        int selection = 0;
-
-        do {
-            System.out.print("Please enter your selection:");
-            selection = scanner.nextInt();
-        } while (selection < 1 || selection > userOptions.length);
-
-        return selection;
+        return getNumberFromUser(1, userOptions.length);
     }
 
     public static GameConsole getConsoleInfoFromUser()
@@ -49,7 +60,8 @@ public class UserInteraction
 
     private static String getUserResponse(String prompt)
     {
-        System.out.print(prompt);
+        System.out.println(prompt);
+
         return scanner.nextLine();
     }
 
