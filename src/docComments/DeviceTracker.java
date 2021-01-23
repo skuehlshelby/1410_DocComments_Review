@@ -37,7 +37,7 @@ public class DeviceTracker
     {
         throw new NotImplementedException();
     }
-
+    
     public List<Device> allDevices()
     {
         return instance.devices;
