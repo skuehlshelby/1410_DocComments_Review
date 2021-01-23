@@ -50,15 +50,10 @@ public class DeviceTracker
 
     /**
      * Prints out all the devices stored in the devices ArrayList
-     * @param gameConsoles
      */
-    public void allDevices(List<GameConsole> gameConsoles)
+    public List<GameConsole> allDevices()
     {
-        int i;
-        for (i = 0; i < instance.gameConsoles.size(); i++)
-        {
-            System.out.println(instance.gameConsoles.get(i));
-        }
+        return instance.gameConsoles;
     }
 
     public int numberOfDevices()

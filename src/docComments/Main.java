@@ -4,7 +4,16 @@ public class Main
 {
     public static void main(String[] args)
     {
-        //Syntax test
-	    DeviceTracker.getInstance().addDevice(new GameConsole("XBox", "SeriesX", "1 tb SSD"));
+        boolean exit = false;
+
+        do {
+            switch (UserInteraction.getUserSelection())
+            {
+                case 1:
+                    UserInteraction.displayListSize(DeviceTracker.getInstance().allDevices());
+                case 2:
+                    DeviceTracker.getInstance().addDevice(UserInteraction.getConsoleInfoFromUser());
+            }
+        }while(!exit);
     }
 }
