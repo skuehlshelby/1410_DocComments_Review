@@ -6,7 +6,7 @@ package docComments;
 public class Device
 {
     //Shared members
-    private static int id = 1111111;
+    private static int id = 1234567;
     
     //Only used inside the constructor of new devices. Device instances use the ID field
     private static int getID()
@@ -16,7 +16,6 @@ public class Device
 
     //Instance members
 
-    //I was thinking that we could just do Xbox or PlayStation
     private final int ID;
     private final String brand, model, storageSpace;
 
