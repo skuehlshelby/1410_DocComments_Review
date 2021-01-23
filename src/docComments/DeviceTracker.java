@@ -20,10 +20,10 @@ public class DeviceTracker
     private DeviceTracker()
     {
         devices = Arrays.asList(
-                new Device("", "", ""),
-                new Device("", "", ""),
-                new Device("", "", ""),
-                new Device("", "", ""));
+                new Device("Xbox", "SeriesX", "1 TB SSD"),
+                new Device("Xbox", "Xbox1", "500 GB HDD"),
+                new Device("Playstation", "PS4", "500 GB HDD"),
+                new Device("Playstation", "PS5", "1 TB SSD"));
     }
 
     public void addDevice(Device newDevice)
