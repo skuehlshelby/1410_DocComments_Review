@@ -10,7 +10,7 @@ public class Main
             switch (UserInteraction.getUserSelection())
             {
                 case 1:
-                    UserInteraction.present(DeviceTracker.getInstance().allGameConsoles().toArray(new String[DeviceTracker.getInstance().allGameConsoles().size()]));
+                    UserInteraction.present(DeviceTracker.getInstance().allGameConsoles().stream().map(console -> console.toString()).toArray(String[]::new));
                     break;
                 case 2:
                     GameConsole console = UserInteraction.getConsoleInfoFromUser();
