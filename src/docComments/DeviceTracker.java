@@ -49,6 +49,10 @@ public class DeviceTracker
         }
     }
 
+    /**
+     * Prints the number of devices that are stored in the Array List
+     * @return Returns the size of the devices ArrayList
+     */
     public int numberOfDevices()
     {
         return instance.devices.size();
