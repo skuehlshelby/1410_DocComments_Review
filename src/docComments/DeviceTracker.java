@@ -3,6 +3,9 @@ package docComments;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * A class that manages the database of console objects through the DeviceTracker Object.
+ */
 public class DeviceTracker
 {
     //Shared members
@@ -16,6 +19,9 @@ public class DeviceTracker
     //Instance members
     private final List<GameConsole> gameConsoles;
 
+    /**
+     * Creates a new DeviceTracker Object.
+     */
     private DeviceTracker()
     {
         gameConsoles = Arrays.asList(
@@ -25,17 +31,40 @@ public class DeviceTracker
                 new GameConsole("Playstation", "PS5", "500GB HDD"));
     }
 
-    public void addDevice(GameConsole newGameConsole)
+    /**
+     * Adds a new Game Console to the database.
+     * @param newGameConsole New Game Console Object
+     */
+    public void addGameConsole(GameConsole newGameConsole)
     {
         gameConsoles.add(newGameConsole);
     }
 
-    public void removeDevice(int idNumber)
+    /**
+     * Removes a given Game Console from the database.
+     * @param idNumber the id number for the given console in the database.
+     * @throws Exception Throws exception if user enters invalid id#.
+     */
+    public void removeGameConsole(int idNumber) throws Exception
     {
-
+        for (int i = 0; i < instance.gameConsoles.size(); i++)
+        {
+            if(gameConsoles.get(i).getID() == idNumber)
+            {
+                gameConsoles.remove(i);
+                System.out.println("Console " + idNumber + " has been removed.");
+            }
+        }
+        throw new Exception(String.format("Could not find a device with the id number %d", idNumber));
     }
 
-    public GameConsole findDevice(int idNumber) throws Exception
+    /**
+     *  Returns the information about a given console including the Brand, Model, and Storage Information.
+     * @param idNumber the id number for the console in the database.
+     * @return Returns the information about a given console.
+     * @throws Exception Throws exception if user enters invalid id#.
+     */
+    public GameConsole findGameConsole(int idNumber) throws Exception
     {
         for (GameConsole console : gameConsoles)
         {
@@ -49,18 +78,22 @@ public class DeviceTracker
     }
 
     /**
-     * Prints out all the devices stored in the devices ArrayList
-     * @param gameConsoles
+     * Prints out all the devices stored in the devices ArrayList.
+     * @param gameConsoles This is the list that stores all of the game consoles.
      */
     public void allDevices(List<GameConsole> gameConsoles)
     {
-        int i;
-        for (i = 0; i < instance.gameConsoles.size(); i++)
+
+        for (int i = 0; i < instance.gameConsoles.size(); i++)
         {
             System.out.println(instance.gameConsoles.get(i));
         }
     }
 
+    /**
+     * Prints out the number of devices that are stored in the database.
+     * @return Returns an integer that represents the number of devices in the database.
+     */
     public int numberOfDevices()
     {
         return instance.gameConsoles.size();
