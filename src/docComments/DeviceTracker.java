@@ -19,10 +19,10 @@ public class DeviceTracker
     private DeviceTracker()
     {
         gameConsoles = Arrays.asList(
-                new GameConsole("", "", ""),
-                new GameConsole("", "", ""),
-                new GameConsole("", "", ""),
-                new GameConsole("", "", ""));
+                new GameConsole("Xbox", "SeriesX", "1TB SSD"),
+                new GameConsole("Xbox", "Xbox1", "500GB HDD"),
+                new GameConsole("Playstation", "PS4", "1TB SSD"),
+                new GameConsole("Playstation", "PS5", "500GB HDD"));
     }
 
     public void addDevice(GameConsole newGameConsole)
