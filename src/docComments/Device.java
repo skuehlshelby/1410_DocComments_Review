@@ -20,7 +20,7 @@ public class Device
     private final String brand, model, storageSpace;
 
     /**
-    * Constructor for a device object
+    * Constructor for a device object.
     */
     public Device(String brand, String model, String storageSpace)
     {
@@ -31,7 +31,15 @@ public class Device
     }
 
     /**
-    * Returns the brand of the device
+     * Returns a unique identifier for the device.
+     */
+    public int getID()
+    {
+        return ID;
+    }
+
+    /**
+    * Returns the brand of the device.
     */
     public String getBrand()
     {
@@ -39,7 +47,7 @@ public class Device
     }
 
     /**
-    * Returns the model of the device
+    * Returns the model of the device.
     */
     public String getModel()
     {
