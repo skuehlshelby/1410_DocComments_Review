@@ -3,26 +3,25 @@ package docComments;
 * This Class Constructs, edits, adds, and removes device objects from and ArrayList for use in the practice database.
 *
 */
-public class Device
+public class GameConsole
 {
     //Shared members
     private static int id = 1234567;
     
-    //Only used inside the constructor of new devices. Device instances use the ID field
+    //Only used inside the constructor of new consoles. Device instances use the ID field.
     private static int createID()
     {
         return id++;
     }
 
     //Instance members
-
     private final int ID;
     private final String brand, model, storageSpace;
 
     /**
-    * Constructor for a device object.
+    * Constructor for a GameConsole object.
     */
-    public Device(String brand, String model, String storageSpace)
+    public GameConsole(String brand, String model, String storageSpace)
     {
         ID = createID();
         this.brand = brand;
@@ -31,7 +30,7 @@ public class Device
     }
 
     /**
-     * Returns a unique identifier for the device.
+     * Returns a unique identifier for the console.
      */
     public int getID()
     {
@@ -39,7 +38,7 @@ public class Device
     }
 
     /**
-    * Returns the brand of the device.
+    * Returns the brand of the console.
     */
     public String getBrand()
     {
@@ -47,7 +46,7 @@ public class Device
     }
 
     /**
-    * Returns the model of the device.
+    * Returns the model of the console.
     */
     public String getModel()
     {
@@ -55,7 +54,7 @@ public class Device
     }
 
     /**
-    * Returns the HDD storage space on the device.
+    * Returns the HDD storage space on the console.
     */
     public String getStorageSpace()
     {
@@ -63,7 +62,7 @@ public class Device
     }
 
     /**
-    * Gathers all information about the device and converts it into a string. 
+    * Gathers all information about the console and converts it into a string.
     */
     @Override
     public String toString()
