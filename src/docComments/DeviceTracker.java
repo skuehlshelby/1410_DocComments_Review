@@ -1,6 +1,7 @@
 package docComments;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DeviceTracker
@@ -18,7 +19,11 @@ public class DeviceTracker
 
     private DeviceTracker()
     {
-        devices = new ArrayList<Device>() {};
+        devices = Arrays.asList(
+                new Device("", "", ""),
+                new Device("", "", ""),
+                new Device("", "", ""),
+                new Device("", "", ""));
     }
 
     public void addDevice(Device newDevice)
