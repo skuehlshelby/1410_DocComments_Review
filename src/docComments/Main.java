@@ -7,41 +7,54 @@ public class Main
         boolean exit = false;
 
         do {
-            switch (UserInteraction.getUserSelection())
+            try {
+                switch (UserInteraction.getUserChoice())
+                {
+                    case SHOW_ALL_CONSOLES:
+                        UserInteraction.present(DeviceTracker.getInstance()
+                                .allGameConsoles()
+                                .stream()
+                                .map(GameConsole::toString)
+                                .toArray(String[]::new));
+                        break;
+
+                    case ADD_A_CONSOLE:
+                        GameConsole console = UserInteraction.getConsoleInfoFromUser();
+
+                        DeviceTracker.getInstance()
+                                .addGameConsole(console);
+
+                        UserInteraction.present(String.format("Successfully added %s", console.toString()));
+                        break;
+
+                    case FIND_A_CONSOLE:
+                            int consoleID = UserInteraction.getConsoleIDNumber();
+
+                            UserInteraction.present(DeviceTracker.getInstance()
+                                    .findGameConsole(consoleID)
+                                    .toString());
+                        break;
+
+                    case DELETE_A_CONSOLE:
+                            DeviceTracker.getInstance()
+                                    .removeGameConsole(UserInteraction.getConsoleIDNumber());
+                        break;
+
+                    case DISPLAY_NUMBER_OF_CONSOLES:
+                        UserInteraction.present(
+                                String.format("There are %d consoles currently being tracked.",
+                                        DeviceTracker.getInstance().allGameConsoles().size()));
+                        break;
+
+                    case EXIT:
+                        UserInteraction.present("Goodbye...");
+                        exit = true;
+                        break;
+                }
+            }
+            catch (Exception e)
             {
-                case 1:
-                    UserInteraction.present(DeviceTracker.getInstance().allGameConsoles().stream().map(console -> console.toString()).toArray(String[]::new));
-                    break;
-                case 2:
-                    GameConsole console = UserInteraction.getConsoleInfoFromUser();
-                    DeviceTracker.getInstance().addGameConsole(console);
-                    UserInteraction.present(String.format("Successfully added %s", console.toString()));
-                    break;
-                case 3:
-                    try
-                    {
-                        UserInteraction.present(DeviceTracker.getInstance().findGameConsole(UserInteraction.getConsoleIDNumber()).toString());
-                    } catch (Exception e)
-                    {
-                        UserInteraction.present(e.getMessage());
-                    }
-                    break;
-                case 4:
-                    try
-                    {
-                        DeviceTracker.getInstance().removeGameConsole(UserInteraction.getConsoleIDNumber());
-                    } catch (Exception e)
-                    {
-                        UserInteraction.present(e.getMessage());
-                    }
-                    break;
-                case 5:
-                    UserInteraction.displayListSize(DeviceTracker.getInstance().allGameConsoles());
-                    break;
-                case 6:
-                    UserInteraction.present("Goodbye...");
-                    exit = true;
-                    break;
+                UserInteraction.present(e.getMessage());
             }
         }while(!exit);
     }

@@ -1,25 +1,22 @@
 package docComments;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * A class which contains methods for interacting with the user.
+ */
 public class UserInteraction
 {
     private static final Scanner scanner = new Scanner(System.in);
 
-    private static final String[] userOptions =
-            {
-            "1. Show all consoles.",
-            "2. Add a console.",
-            "3. Find a console.",
-            "4. Delete a console.",
-            "5. Display total number of consoles.",
-            "6. Exit"
-            };
-
-    public static void present(String...lines)
+    /**
+     * @param prompt
+     * The prompt to present to the user. Can consist of one or more strings.
+     */
+    public static void present(String...prompt)
     {
-        for (String line : lines)
+        for (String line : prompt)
         {
             System.out.println(line);
         }
@@ -33,7 +30,7 @@ public class UserInteraction
 
     private static int getIntResponse(int min, int max, String...prompt)
     {
-        int selection = 0;
+        int selection;
 
         do {
             present(prompt);
@@ -45,13 +42,21 @@ public class UserInteraction
         return selection;
     }
 
-    public static int getUserSelection()
+    /**
+     * @return The action that the user would like to perform.
+     */
+    public static UserChoice getUserChoice()
     {
-        present(userOptions);
+        present("", "Please select a choice from the menu:");
 
-        return getIntResponse(1, userOptions.length, String.format("Please enter a number between %d and %d:", 1, userOptions.length));
+        int choice = getIntResponse(1, UserChoice.values().length, Arrays.stream(UserChoice.values()).map(UserChoice::toString).toArray(String[]::new));
+
+        return Arrays.stream(UserChoice.values()).filter(selection -> selection.getValue() == choice).findFirst().get();
     }
 
+    /**
+     * @return The information necessary to create a new game console object.
+     */
     public static GameConsole getConsoleInfoFromUser()
     {
         return new GameConsole(
@@ -60,13 +65,11 @@ public class UserInteraction
                 getStringResponse("How much storage does the console have?"));
     }
 
+    /**
+     * @return An ID number which could belong to a game console.
+     */
     public static int getConsoleIDNumber()
     {
         return getIntResponse(1234567, Integer.MAX_VALUE, "Please enter the console ID number.");
-    }
-
-    public static void displayListSize(List<GameConsole> list)
-    {
-        present(String.format("There are %d consoles currently being tracked.", list.size()));
     }
 }
